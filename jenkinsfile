@@ -21,7 +21,7 @@ pipeline {
         stage('Terraform Plan'){
               steps {
                 sh '''
-                    terraform plan -out=tfplan -input=false
+                    terraform plan -lock=false -out=tfplan -input=false
                    '''
               }
         }
@@ -39,9 +39,9 @@ pipeline {
                 sh '''
                 if [[ $ACTION == 'apply' ]]
                 then
-                    terraform $ACTION -auto-approve
+                    terraform $ACTION -lock=false -auto-approve
                 else
-                    terraform $ACTION -auto-approve
+                    terraform $ACTION -lock=false -auto-approve
                 fi
                 '''
               }
