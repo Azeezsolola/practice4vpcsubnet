@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         PATH = "${env.PATH}:/usr/local/bin"
-        ACTION="apply"
+        ACTION="destroy"
 
 
     }
